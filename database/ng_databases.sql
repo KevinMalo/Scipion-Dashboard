@@ -10,8 +10,8 @@ CREATE TABLE `products` (
   `brand` varchar(100) NOT NULL,
   `price` int(10) unsigned NOT NULL,
   `short_description` varchar(200) NOT NULL,
-  `description` varchar(350) NOT NULL,
-  `information` varchar(350) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `information` varchar(500) NOT NULL,
   `stock` int(10) unsigned NOT NULL default 0,
   PRIMARY KEY (`sku`)
 ) ENGINE=InnoDB AUTO_INCREMENT=193 DEFAULT CHARSET=utf8mb4;
