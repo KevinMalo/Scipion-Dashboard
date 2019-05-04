@@ -14,12 +14,16 @@ class ProductsController {
     res.json({ message: 'Producto guardado'});
   }
 
-  public delete(req: Request, res: Response): void {
-    res.json('delete product ${req.params.id}');
+  public async delete(req: Request, res: Response): Promise<void> {
+    const {id} = req.params;
+    await pool.query('DELETE FROM products WHERE sku = ?', [id]);
+    res.json({ message: 'Producto eliminado'});
   }
 
-  public update(req: Request, res: Response): void {
-    res.json(`update product ${req.params.id}`);
+  public async update(req: Request, res: Response): Promise<void> {
+    const {id} = req.params;
+    await pool.query('UPDATE products set ? WHERE sku = ?', [req.body, id]);
+    res.json({ message: 'Producto actualizado'});
   }
 
   public async getOne(req: Request, res: Response): Promise<any> {
