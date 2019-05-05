@@ -13,7 +13,6 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 // Services
 import { ProductsService } from './services/products.service';
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -28,7 +27,6 @@ import { ProductsService } from './services/products.service';
   declarations: [
     AppComponent,
     AdminLayoutComponent
-
   ],
   providers: [
     ProductsService

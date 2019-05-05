@@ -2,6 +2,7 @@ import { Product } from './../models/product';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ProductsService } from '../services/products.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -22,13 +23,16 @@ export class UserProfileComponent implements OnInit {
     stock: 0
   }
 
-  constructor(private toastr: ToastrService, private _productsService: ProductsService) {}
+  public edit: boolean = false;
+
+  constructor(private toastr: ToastrService, private _productsService: ProductsService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   saveProduct() {
     this._productsService.saveProduct(this.product).subscribe(
       res => {
         console.log(res);
         this.showNotification(true);
+        this.router.navigate(['/dashboard']);
       },
       err => {
         console.log(err);
@@ -36,6 +40,17 @@ export class UserProfileComponent implements OnInit {
       }
     );
     console.log(this.product);
+  }
+
+  updateProduct() {
+    this._productsService.updateProduct(this.product.sku, this.product).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigate(['/dashboard']);
+      },
+      err => console.log(err)
+    );
+
   }
 
   showNotification(res, err?){
@@ -62,6 +77,17 @@ export class UserProfileComponent implements OnInit {
 
 
   ngOnInit() {
+    const params = this.activatedRoute.snapshot.params;
+    if (params.id) {
+      this._productsService.getProduct(params.id).subscribe(
+        res => {
+          console.log(res);
+          this.product = res;
+          this.edit = true;
+        },
+        err => console.log(err)
+      );
+    }
   }
 
 }

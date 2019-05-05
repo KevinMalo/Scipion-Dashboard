@@ -21,14 +21,14 @@ export class ProductsService {
   }
 
   deleteProduct(id: string) {
-    return this.http.get(`${this.API_URI}/products/${id}`);
+    return this.http.delete(`${this.API_URI}/products/${id}`);
   }
 
   saveProduct(product: Product) {
     return this.http.post(`${this.API_URI}/products`, product);
   }
 
-  updateProduct(id: string, updatedPro: Product): Observable<any> {
+  updateProduct(id: string | number, updatedPro: Product): Observable<any> {
     return this.http.put(`${this.API_URI}/products/${id}`, updatedPro);
   }
 

@@ -12,7 +12,6 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
 @NgModule({
   imports: [
@@ -27,7 +26,6 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
     DashboardComponent,
     UserProfileComponent,
     TableListComponent,
-    UpgradeComponent,
     TypographyComponent,
     IconsComponent,
     NotificationsComponent,

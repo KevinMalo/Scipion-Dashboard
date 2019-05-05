@@ -13,15 +13,27 @@ export class TableListComponent implements OnInit {
 
   constructor( private _productsService: ProductsService ) { }
 
-  ngOnInit() {
-
-    this._productsService.getProducts().subscribe(
+  deleteProduct(id: string) {
+    console.log(id);
+    this._productsService.deleteProduct(id).subscribe(
       res => {
-        this.products = res;
-        console.log(res);
+        this.getProducts();
       },
       err => console.log(err)
     );
+  }
+
+  getProducts() {
+    this._productsService.getProducts().subscribe(
+      res => {
+        this.products = res;
+      },
+      err => console.log(err)
+    );
+  }
+
+  ngOnInit() {
+    this.getProducts();
   }
 
 }

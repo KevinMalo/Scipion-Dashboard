@@ -53,8 +53,12 @@
                     <img class="imgView" [src]="product.image">
                   </td>
                   <td class="align-content-center">
-                    <i class="far fa-edit"></i>
-                    <i class="far fa-trash-alt"></i>
+                    <button [routerLink]="['/edit', product.sku]" routerLinkActive="router-link-active">
+                      <i class="far fa-edit"></i>
+                    </button>
+                    <button (click)="deleteProduct(product.sku)">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
                   </td>
                 </tr>
               </tbody>
