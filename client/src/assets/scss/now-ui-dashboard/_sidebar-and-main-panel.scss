@@ -118,16 +118,16 @@
               background-color: $white-color;
               box-shadow: $box-shadow;
               i{
-                color: $danger-color;
+                color: $primary-color;
               }
             }
             :hover &.active-pro > a,
             :focus &.active-pro > a{
               background-color: $white-color;
               box-shadow: $box-shadow;
-              color: $danger-color;
+              color: $primary-color;
               i{
-                color: $danger-color;
+                color: $primary-color;
               }
             }
         }
@@ -277,7 +277,7 @@
       @include sidebar-color($orange-color);
     }
     &[data-color="red"]{
-      @include sidebar-color($danger-color);
+      @include sidebar-color($primary-color);
     }
     &[data-color="yellow"]{
       @include sidebar-color($warning-color);

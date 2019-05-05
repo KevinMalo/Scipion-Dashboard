@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from './../models/product';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-table-list',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableListComponent implements OnInit {
 
-  constructor() { }
+  public products: any = [];
+
+  constructor( private _productsService: ProductsService ) { }
 
   ngOnInit() {
+
+    this._productsService.getProducts().subscribe(
+      res => {
+        this.products = res;
+        console.log(res);
+      },
+      err => console.log(err)
+    );
   }
 
 }

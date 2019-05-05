@@ -13,6 +13,10 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
+// Services
+import { ProductsService } from './services/products.service';
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -29,7 +33,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AdminLayoutComponent
 
   ],
-  providers: [],
+  providers: [
+    ProductsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
