@@ -1,3 +1,4 @@
+
 export interface Product {
   sku?: number;
   name: string;
@@ -9,3 +10,5 @@ export interface Product {
   information: string;
   stock: number;
 }
+
+

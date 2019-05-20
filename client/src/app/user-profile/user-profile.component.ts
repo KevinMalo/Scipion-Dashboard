@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
 
-  public product: Product = {
+  public product: any = {
     name: '',
     image: '',
     brand: '',
